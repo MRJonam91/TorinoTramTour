@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags & SEO -->
+  <title>Torino Tram Tour | Il Gran Tour Panoramico su Rotaia della Città Sabauda</title>
+  <meta name="title" content="Torino Tram Tour | Il Gran Tour Panoramico su Rotaia">
+  <meta name="description" content="Esplora Torino solo con Tram, Metrò e Cremagliera! Un anello panoramico a zero emissioni tra Liberty, magia esoterica, Mole Antonelliana, Fetta di Polenta e Basilica di Superga. Mappa reale interattiva e cronoprogramma personalizzabile.">
+  <meta name="keywords" content="Torino Tram Tour, GTT Torino, tour tram torino, treni panoramici torino, cremagliera sassi superga, linea 7 tram storico, metro torino m1, torino esoterica, turismo torino sostenibile, cosa vedere a torino in tram, visit turin, tramway turin">
+  <meta name="author" content="Manoj Rollo (MRJonam91)">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mrjonam91.github.io/TorinoTramTour/">
+  <meta property="og:title" content="Torino Tram Tour | Il Gran Tour Panoramico su Rotaia">
+  <meta property="og:description" content="Vivi Torino al 100% su rotaia come su un treno panoramico! Metro automatica, tram d'epoca, la cremagliera del 1934 e tutti i segreti della città sabauda.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://mrjonam91.github.io/TorinoTramTour/">
+  <meta property="twitter:title" content="Torino Tram Tour | Il Gran Tour Panoramico su Rotaia">
+  <meta property="twitter:description" content="Scopri Torino solo con Tram, Metro e Dentera collinare: itinerario panoramico interattivo, curiosità e cronoprogramma personalizzabile!">
+  <meta property="twitter:image" content="https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Schema.org JSON-LD for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    "name": "Torino Tram Tour su Rotaia",
+    "description": "Itinerario panoramico della città di Torino svolto esclusivamente su rotaia (Tram GTT, Metro M1, Tranvia Sassi-Superga e Linea 7 Storica).",
+    "touristType": ["Rail Enthusiasts", "Eco-tourists", "Cultural Tourists"],
+    "itinerary": {
+      "@type": "ItemList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Cit Turin Liberty & Piazza Statuto (Metro M1)" },
+        { "@type": "ListItem", "position": 2, "name": "Via Pietro Micca, Piazza Castello & Gran Madre (Tram 13)" },
+        { "@type": "ListItem", "position": 3, "name": "Mole Antonelliana, Fetta di Polenta & Corso Belgio (Tram 15)" },
+        { "@type": "ListItem", "position": 4, "name": "Cremagliera Storica Sassi-Superga" },
+        { "@type": "ListItem", "position": 5, "name": "Parco del Valentino & Grandi Viali (Tram 16 CS)" },
+        { "@type": "ListItem", "position": 6, "name": "Porta Palazzo & Porte Palatine Romane (Tram 4)" },
+        { "@type": "ListItem", "position": 7, "name": "Lingotto Pista 500 & Linea 7 Storica (Metro M1 / Tram 7)" }
+      ]
+    }
+  }
+  </script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20width=%22100%22%20height=%22100%22><text y=%22.9em%22 font-size=%2290%22>🚋</text></svg>">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gttRed: '#E30613',
+            gttOrange: '#F78F1E',
+            gttBlue: '#0055A5',
+            gttTeal: '#0098A6',
+            gttGreen: '#10B981',
+            gttGold: '#D97706',
+            cremagliera: '#2D7D46',
+            torinoDark: '#0f172a'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-serif-title {
+      font-family: 'Playfair Display', serif;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+    .leaflet-popup-content-wrapper {
+      border-radius: 1rem;
+      padding: 0;
+      overflow: hidden;
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+    .leaflet-popup-content {
+      margin: 0;
+      line-height: 1.5;
+    }
+    .pulsing-node {
+      box-shadow: 0 0 0 0 rgba(227, 6, 19, 0.7);
+      animation: pulse 1.8s infinite cubic-bezier(0.66, 0, 0, 1);
+    }
+    @keyframes pulse {
+      to {
+        box-shadow: 0 0 0 16px rgba(227, 6, 19, 0);
+      }
+    }
+    .timeline-dot::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 28px;
+      bottom: -12px;
+      width: 2px;
+      background: #334155;
+    }
+    .timeline-item:last-child .timeline-dot::before {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 flex flex-col h-screen overflow-hidden antialiased">
+
+  <!-- Header Top Bar -->
+  <header class="bg-slate-950/90 backdrop-blur-md border-b border-slate-800 z-30 px-3 sm:px-4 py-2 flex items-center justify-between shrink-0">
+    <div class="flex items-center space-x-3">
+      <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-gttRed via-amber-500 to-amber-300 flex items-center justify-center text-lg sm:text-xl shadow-lg shadow-red-900/40">
+        🚋
+      </div>
+      <div>
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <h1 class="text-sm sm:text-base font-bold tracking-tight text-white flex items-center gap-1.5 font-serif-title">
+            Torino su Rotaia
+          </h1>
+          <span class="bg-red-500/20 text-red-400 border border-red-500/30 text-[9px] sm:text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full">
+            100% Tram &amp; Ferro
+          </span>
+        </div>
+        <p class="text-[11px] text-slate-400 hidden md:block">Il Gran Tour Panoramico della Città Sabauda solo con Tram, Metrò e Cremagliera</p>
+      </div>
+    </div>
+
+    <!-- Actions: Donation, Star on GitHub, Autoplay, Mobile Toggle -->
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <!-- Donate / Sponsor Pill -->
+      <button id="btn-open-donate" class="flex items-center gap-1 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-all active:scale-95">
+        <span>💖</span> <span class="hidden sm:inline">Offri un Caffè</span>
+      </button>
+
+      <!-- GitHub Repo & Star Link -->
+      <a href="https://github.com/MRJonam91/TorinoTramTour" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-all">
+        <span>⭐</span> <span>Star</span>
+      </a>
+
+      <!-- Autoplay Tour -->
+      <button id="btn-autoplay" class="flex items-center gap-1.5 bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-md transition-all active:scale-95">
+        <span id="play-icon">▶</span>
+        <span id="play-text" class="hidden sm:inline">Tour Guidato</span>
+      </button>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="toggle-sidebar-btn" class="md:hidden bg-slate-800 p-2 rounded-lg text-slate-300 hover:text-white">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Workspace: Split Map & Rich Sidebar -->
+  <div class="flex-1 flex overflow-hidden relative">
+
+    <!-- Interactive Sidebar (Left / Drawer) -->
+    <aside id="sidebar" class="w-full md:w-[480px] lg:w-[520px] bg-slate-950 border-r border-slate-800 flex flex-col shrink-0 z-20 transition-all duration-300 absolute md:relative inset-y-0 left-0 transform -translate-x-full md:translate-x-0">
+      
+      <!-- Tab Navigation -->
+      <nav class="flex border-b border-slate-800 bg-slate-900/60 text-xs font-semibold overflow-x-auto shrink-0 scrollbar-none">
+        <button data-tab="tour" class="tab-btn flex-1 py-3 px-2 text-center border-b-2 border-gttRed text-white flex items-center justify-center gap-1 whitespace-nowrap">
+          <span>🚩</span> <span>Le 7 Tappe</span>
+        </button>
+        <button data-tab="timing" class="tab-btn flex-1 py-3 px-2 text-center border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center justify-center gap-1 whitespace-nowrap">
+          <span>⏱️</span> <span class="text-amber-400 font-bold">Personalizza Tempi</span>
+        </button>
+        <button data-tab="lines" class="tab-btn flex-1 py-3 px-2 text-center border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center justify-center gap-1 whitespace-nowrap">
+          <span>🚋</span> <span>Linee GTT</span>
+        </button>
+        <button data-tab="vehicles" class="tab-btn flex-1 py-3 px-2 text-center border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center justify-center gap-1 whitespace-nowrap">
+          <span>⚙️</span> <span>I Mezzi</span>
+        </button>
+        <button data-tab="secrets" class="tab-btn flex-1 py-3 px-2 text-center border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center justify-center gap-1 whitespace-nowrap">
+          <span>🔮</span> <span>Curiosità</span>
+        </button>
+      </nav>
+
+      <!-- Tab 1: Il Tour in 7 Tappe -->
+      <div id="tab-tour" class="tab-content flex-1 overflow-y-auto p-4 space-y-3">
+        <div class="bg-gradient-to-br from-slate-900 to-slate-800/80 p-3.5 rounded-xl border border-slate-700/60 shadow-sm">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Anello Panoramico Completo</span>
+              <h2 class="text-base font-bold text-white font-serif-title">Il Gran Tour Reale su Rotaia</h2>
+            </div>
+            <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-md border border-slate-700 font-mono font-bold" id="badge-total-duration">
+              ~4h 45m
+            </span>
+          </div>
+          <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+            Un anello continuo che tocca tutti i punti simbolici di Torino. Zero autobus: solo tram storici e moderni, metrò e cremagliera collinare. Clicca su ciascuna tappa per volare sulla mappa.
+          </p>
+        </div>
+
+        <!-- Stage List Container -->
+        <div class="space-y-2.5" id="stages-container">
+          <!-- Populated dynamically by JS -->
+        </div>
+
+        <!-- Ticket Card -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3.5 text-xs space-y-1.5 text-slate-300">
+          <div class="font-bold text-white flex items-center gap-1.5">
+            <span>🎫</span> <span>Biglietto consigliato:</span>
+          </div>
+          <p>
+            Basta il <strong class="text-emerald-400">GTT Giornaliero Daily (4,50 €)</strong> o MultiDaily per metro e tutti i tram. Per la <strong class="text-amber-400">Tranvia a dentiera Sassi-Superga</strong> serve il biglietto dedicato (6 € corsa singola, 9 € A/R; feriale 4 €/6 €) acquistabile in Stazione Sassi.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tab 2: Personalizza Tempi & Cronoprogramma -->
+      <div id="tab-timing" class="tab-content hidden flex-1 overflow-y-auto p-4 space-y-4">
+        
+        <!-- Header & Preset Selector -->
+        <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-amber-950/40 p-3.5 rounded-xl border border-amber-500/30 space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-white font-serif-title flex items-center gap-1.5">
+              <span>⏱️</span> Personalizza la Tua Tabella di Marcia
+            </h3>
+            <span class="text-[11px] bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full font-bold">
+              Dinamico
+            </span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Scegli un ritmo preimpostato o regola i minuti di sosta per ciascuna tappa. Il cronoprogramma si aggiorna istantaneamente con gli orari esatti di passaggio!
+          </p>
+
+          <!-- Preset Pills -->
+          <div class="grid grid-cols-3 gap-1.5 pt-1">
+            <button data-preset="express" class="preset-btn p-2 rounded-lg border text-left transition-all bg-slate-900 border-slate-700 hover:border-amber-500">
+              <div class="text-[10px] font-bold text-amber-400">⚡ EXPRESS</div>
+              <div class="text-xs font-bold text-white">2h 30m</div>
+              <div class="text-[10px] text-slate-400 mt-0.5">Soste minime (5m)</div>
+            </button>
+            <button data-preset="classic" class="preset-btn p-2 rounded-lg border text-left transition-all bg-amber-500/20 border-amber-500 ring-1 ring-amber-500">
+              <div class="text-[10px] font-bold text-amber-400">🌟 CLASSICO</div>
+              <div class="text-xs font-bold text-white">4h 45m</div>
+              <div class="text-[10px] text-slate-300 mt-0.5">Consigliato (foto+caffè)</div>
+            </button>
+            <button data-preset="slow" class="preset-btn p-2 rounded-lg border text-left transition-all bg-slate-900 border-slate-700 hover:border-amber-500">
+              <div class="text-[10px] font-bold text-amber-400">🏰 SLOW / FULL</div>
+              <div class="text-xs font-bold text-white">7h 30m</div>
+              <div class="text-[10px] text-slate-400 mt-0.5">Musei + Superga top</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Start Time Input & Live Summary -->
+        <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-800 flex items-center justify-between gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">
+              🚀 Partenza da Porta Nuova:
+            </label>
+            <input type="time" id="input-start-time" value="09:30" class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1 text-sm font-bold text-white focus:outline-none focus:border-amber-500">
+          </div>
+          <div class="text-right">
+            <div class="text-[11px] text-slate-400">Rientro stimato:</div>
+            <div class="text-base font-extrabold text-amber-400 font-mono" id="label-end-time">14:15</div>
+            <div class="text-[10px] text-slate-400" id="label-total-calc">Durata: 4h 45m</div>
+          </div>
+        </div>
+
+        <!-- Custom Stop Sliders (per stage) -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-slate-300 px-1">
+            <span>Regola la sosta per ogni tappa:</span>
+            <span class="text-slate-500 text-[11px]">Tempo a bordo fisso + sosta</span>
+          </div>
+
+          <div class="space-y-2" id="timing-stages-sliders">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Live Chrono Schedule / Timeline -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3.5 space-y-2">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+            <span class="text-xs font-bold text-white flex items-center gap-1.5">
+              <span>📅</span> Cronoprogramma Itinerario
+            </span>
+            <button id="btn-copy-schedule" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-amber-300 px-2 py-0.5 rounded border border-slate-700 transition-all">
+              📋 Copia Tabella
+            </button>
+          </div>
+
+          <!-- Dynamic Timeline Container -->
+          <div class="space-y-3 pt-2" id="timeline-container">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Practical Timetable Tips -->
+        <div class="bg-slate-900/60 border border-slate-800 p-3 rounded-xl text-xs space-y-1.5 text-slate-300">
+          <div class="font-bold text-amber-400 flex items-center gap-1">
+            <span>💡</span> Consigli di Sincronizzazione:
+          </div>
+          <ul class="list-disc list-inside space-y-1 text-slate-400 text-[11px]">
+            <li><strong>Cremagliera Sassi-Superga:</strong> le partenze sono cadenzate ogni ora (es. 10:00, 11:00, 12:00...). Il calcolatore evidenzia automaticamente l'orario di salita più comodo.</li>
+            <li><strong>Pausa Pranzo:</strong> tra la Tappa 2 (Gran Madre) e la Tappa 3 (Vanchiglia) trovi le tipiche *piòle* piemontesi a 1 minuto dai binari del Tram 15.</li>
+            <li><strong>Linea 7 Storica:</strong> è in servizio sabato pomeriggio e festivi (dalle 14:30 alle 19:30). Se vuoi salirci, programma la partenza verso le 10:00 o nel primo pomeriggio!</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab 3: Tutte le Linee su Ferro di Torino -->
+      <div id="tab-lines" class="tab-content hidden flex-1 overflow-y-auto p-4 space-y-3">
+        <div class="text-xs text-slate-400 pb-1">
+          La rete tranviaria e ferroviaria urbana di Torino è tra le più complete d'Europa. Clicca su ogni linea per attivarla sulla mappa:
+        </div>
+        <div class="space-y-2.5" id="all-lines-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Tab 4: I Tram & Mezzi su Rotaia -->
+      <div id="tab-vehicles" class="tab-content hidden flex-1 overflow-y-auto p-4 space-y-3">
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-slate-300 leading-relaxed">
+          <span class="text-amber-400 font-bold block mb-1">🏛️ Torino: Capitale Storica del Tram</span>
+          Dalla prima linea a cavalli del 1871 fino ai moderni convogli a pianale ribassato, Torino è un museo a cielo aperto dell'ingegneria su rotaia.
+        </div>
+        <div class="space-y-3" id="vehicles-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Tab 5: Curiosità & Segreti sui Punti di Torino -->
+      <div id="tab-secrets" class="tab-content hidden flex-1 overflow-y-auto p-4 space-y-3">
+        <div class="flex items-center justify-between pb-1">
+          <span class="text-xs text-slate-400">Aneddoti nascosti a 2 minuti dai binari:</span>
+          <div class="flex gap-1 text-[11px]" id="secret-filter-btns">
+            <button data-cat="all" class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700">Tutti</button>
+            <button data-cat="esoterismo" class="px-2 py-0.5 rounded bg-slate-900 text-slate-400 hover:text-white">🔮 Magia</button>
+            <button data-cat="architettura" class="px-2 py-0.5 rounded bg-slate-900 text-slate-400 hover:text-white">🏛️ Architettura</button>
+          </div>
+        </div>
+        <div class="space-y-3" id="secrets-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Support / Donation Card at bottom of sidebar -->
+      <div class="p-3 border-t border-slate-800/80 bg-slate-950/80 flex items-center justify-between text-xs">
+        <span class="text-slate-400">Ti è utile il progetto?</span>
+        <button id="btn-sidebar-donate" class="text-amber-400 hover:text-amber-300 font-bold flex items-center gap-1">
+          💖 Fai una donazione →
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- Map Container (Right) -->
+    <main class="flex-1 relative h-full">
+      <div id="map" class="w-full h-full bg-slate-900"></div>
+
+      <!-- Floating Map Overlays & Controls -->
+      <div class="absolute top-4 right-4 z-10 flex flex-col gap-2">
+        <!-- Quick Layer Switcher / Legend -->
+        <div class="bg-slate-950/90 backdrop-blur-md border border-slate-800 p-3 rounded-xl shadow-2xl text-xs space-y-2 min-w-[200px]">
+          <div class="font-bold text-white flex items-center justify-between border-b border-slate-800 pb-1.5">
+            <span>Legenda Rotaie</span>
+            <span class="text-[10px] text-slate-400">GTT Live</span>
+          </div>
+          <div class="space-y-1.5 text-[11px]">
+            <label class="flex items-center gap-2 cursor-pointer hover:text-white">
+              <input type="checkbox" id="layer-metro" checked class="rounded accent-red-600">
+              <span class="w-3 h-1 rounded bg-red-600 inline-block"></span>
+              <span>Metro M1 (Fermi-Bengasi)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-white">
+              <input type="checkbox" id="layer-dentera" checked class="rounded accent-emerald-500">
+              <span class="w-3 h-1 rounded bg-emerald-500 border border-emerald-300 border-dashed inline-block"></span>
+              <span>Dentera Sassi-Superga</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-white">
+              <input type="checkbox" id="layer-trams" checked class="rounded accent-blue-500">
+              <span class="w-3 h-1 rounded bg-blue-500 inline-block"></span>
+              <span>Tutti i Tram GTT (4, 13, 15, 16...)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-white">
+              <input type="checkbox" id="layer-pois" checked class="rounded accent-amber-500">
+              <span>📍 Punti Panoramici &amp; Curiosità</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Center on Turin Button -->
+        <button id="btn-recenter" class="bg-slate-950/90 hover:bg-slate-800 backdrop-blur-md border border-slate-800 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl shadow-lg flex items-center justify-center gap-1.5 transition-all">
+          <span>🎯</span> Centra su Torino
+        </button>
+      </div>
+
+      <!-- Stage Bottom Floating Card (Active Stage Info) -->
+      <div id="active-stage-banner" class="absolute bottom-4 left-4 right-4 md:left-6 md:right-auto md:max-w-md bg-slate-950/95 backdrop-blur-md border border-slate-800 rounded-2xl p-4 shadow-2xl z-10 transition-all duration-300">
+        <div class="flex items-center justify-between gap-2 mb-1">
+          <span id="banner-badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-wide"></span>
+          <span id="banner-window" class="text-xs text-slate-400 font-medium"></span>
+        </div>
+        <h3 id="banner-title" class="text-sm font-bold text-white font-serif-title"></h3>
+        <p id="banner-route" class="text-xs text-slate-300 mt-1 line-clamp-2"></p>
+        <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-800 text-xs">
+          <span class="text-amber-400 font-semibold" id="banner-curiosity-preview">💡 Curiosità attiva</span>
+          <button id="banner-details-btn" class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1">
+            Apri scheda completa →
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Donation Modal Dialog -->
+  <div id="modal-donate" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-bold text-white font-serif-title flex items-center gap-2">
+          <span>💖</span> Sostieni il Progetto
+        </h3>
+        <button id="btn-close-donate" class="text-slate-400 hover:text-white text-xl">✕</button>
+      </div>
+
+      <p class="text-xs text-slate-300 leading-relaxed">
+        <strong>Torino Tram Tour</strong> è un progetto indipendente e open-source nato per valorizzare il patrimonio tranviario e storico di Torino e promuovere il turismo sostenibile su rotaia.
+      </p>
+
+      <div class="space-y-2.5 pt-1">
+        <a href="https://buymeacoffee.com/mrjonam91" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 font-semibold text-xs transition-all">
+          <span class="flex items-center gap-2"><span>☕</span> <span>Offrimi un Caffè (Buy Me a Coffee)</span></span>
+          <span>→</span>
+        </a>
+
+        <a href="https://paypal.me/fbxmano" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 text-blue-300 font-semibold text-xs transition-all">
+          <span class="flex items-center gap-2"><span>💳</span> <span>Donazione Libera con PayPal</span></span>
+          <span>→</span>
+        </a>
+
+        <a href="https://github.com/MRJonam91/TorinoTramTour" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold text-xs transition-all">
+          <span class="flex items-center gap-2"><span>⭐</span> <span>Lascia una Stella su GitHub</span></span>
+          <span>★</span>
+        </a>
+      </div>
+
+      <div class="text-[11px] text-slate-500 text-center pt-2 border-t border-slate-800">
+        Idea e sviluppo di <b>Manoj Rollo (@MRJonam91)</b>. Licenza a tutela dell'idea CC BY-NC-ND 4.0.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ==========================================================================
+       DATA: Stages, Timing Defaults, Lines, Vehicles, Curiosities, POIs
+       ========================================================================== */
+
+    const tourStages = [
+      {
+        id: 1,
+        title: "Dal Futuro al Liberty & Torino Esoterica",
+        line: "Metropolitana M1",
+        lineBadgeColor: "bg-red-600 text-white",
+        lineCode: "M1",
+        vehicle: "Convoglio VAL 208 su gomma (guida automatica)",
+        route: "Porta Nuova → Principi d'Acaja → Piazza Statuto",
+        windowSide: "🪟 Prima carrozza: grande parabrezza frontale!",
+        transitMins: 8,
+        stopMins: 20,
+        coords: [45.0768, 7.6595],
+        zoom: 15,
+        sights: [
+          "Stazione Porta Nuova (1864, facciata ad archi di Carlo Ceppi e Alessandro Mazzucchetti)",
+          "Casa Fenoglio-Lafleur (Via Principi d'Acaja 11, capolavoro assoluto del Liberty floreale torinese)",
+          "Casa della Vittoria / 'Casa dei Draghi' (Corso Francia 23, stile neogotico con due draghi alati)",
+          "Piazza Statuto e Monumento al Traforo del Frejus"
+        ],
+        secrets: "Piazza Statuto sorge sull'antica Vallis Occisorum romana: la tradizione esoterica la considera il vertice della Magia Nera. L'angelo in cima al Frejus viene popolarmente accostato a Lucifero, e nell'aiuola è celato l'Obelisco Geodetico Beccaria del 45° parallelo."
+      },
+      {
+        id: 2,
+        title: "La Diagonale Ottocentesca e il Cuore Reale",
+        line: "Tram 13",
+        lineBadgeColor: "bg-amber-600 text-white",
+        lineCode: "13",
+        vehicle: "Vettura storica serie 2800 o TPR 5000",
+        route: "Piazza Statuto → Via Pietro Micca → Piazza Castello → Gran Madre",
+        windowSide: "🪟 Lato Sinistro fino a Piazza Castello, poi entrambi lungo Via Po",
+        transitMins: 18,
+        stopMins: 30,
+        coords: [45.0710, 7.6860],
+        zoom: 15,
+        sights: [
+          "Nuova Stazione di Porta Susa (cattedrale di vetro lunga 385 metri)",
+          "Via Pietro Micca (unica via diagonale che spezza la scacchiera romana)",
+          "Piazza Castello (Palazzo Madama, Palazzo Reale, Real Chiesa di San Lorenzo)",
+          "Via Po, Piazza Vittorio Veneto (la più grande piazza porticata d'Europa)",
+          "Ponte Vittorio Emanuele I e Chiesa della Gran Madre di Dio"
+        ],
+        secrets: "Via Pietro Micca fu aperta nel 1885 tagliando in diagonale il centro medievale. Alla Gran Madre di Dio, la leggenda esoterica vuole che lo sguardo della statua della Religione col calice indichi il punto esatto in cui è nascosto il Sacro Graal."
+      },
+      {
+        id: 3,
+        title: "La Mole, la Fetta di Polenta e la Galleria Verde",
+        line: "Tram 15",
+        lineBadgeColor: "bg-cyan-600 text-white",
+        lineCode: "15",
+        vehicle: "Tram articolato serie 5000 TPR o 6000",
+        route: "Piazza Vittorio Veneto → Corso San Maurizio → Corso Belgio → Sassi",
+        windowSide: "🪟 Lato Sinistro su Corso San Maurizio (inquadratura Mole)",
+        transitMins: 18,
+        stopMins: 15,
+        coords: [45.0699, 7.6974],
+        zoom: 15,
+        sights: [
+          "Scorci ravvicinati sulla Mole Antonelliana tra gli isolati di Vanchiglia",
+          "Giardini Reali Bassi",
+          "Campus Universitario Luigi Einaudi (firmato da Sir Norman Foster)",
+          "Il lunghissimo tunnel alberato di platani di Corso Belgio"
+        ],
+        secrets: "All'angolo tra Corso San Maurizio e Via Giulia di Barolo 9 sfila Casa Scaccabarozzi ('La Fetta di Polenta'): progettata da Antonelli per scommessa su un lotto residuo, sul lato opposto è larga appena 54 centimetri!"
+      },
+      {
+        id: 4,
+        title: "La 'Dentera' del 1934: Arrampicata a Superga",
+        line: "Tranvia Sassi–Superga",
+        lineBadgeColor: "bg-emerald-600 text-white",
+        lineCode: "Dentera",
+        vehicle: "Motrici e vagoni storici originali del 1934 con sedili in legno",
+        route: "Stazione Sassi (Piazza Modena) → Basilica di Superga",
+        windowSide: "🪟 Lato Sinistro in salita (o rimorchio aperto 'a giardiniera')",
+        transitMins: 36,
+        stopMins: 45,
+        coords: [45.0807, 7.7675],
+        zoom: 15,
+        sights: [
+          "Sala Storica e Museo nella Stazione di Sassi (funicolare Agudio del 1884)",
+          "Boschi collinari con pendenze fino al 21% sulla rotaia a cremagliera Strub",
+          "Basilica di Superga di Filippo Juvarra (1731) con Cupola e Tombe Reali Sabaude",
+          "Monumento e lapide del Grande Torino scomparso il 4 maggio 1949"
+        ],
+        secrets: "Rousseau definì il panorama da Superga 'il più bello spettacolo che possa colpire l'occhio umano': nelle giornate limpide si ammira l'intera corona delle Alpi dal Monviso al Monte Rosa."
+      },
+      {
+        id: 5,
+        title: "Il 'Treno Verde' lungo il Parco del Valentino",
+        line: "Tram 16 CS (Circolare Viali)",
+        lineBadgeColor: "bg-emerald-500 text-slate-950",
+        lineCode: "16 CS",
+        vehicle: "Vettura storica serie 2800 'due camere e cucina'",
+        route: "Piazza Vittorio Veneto → Corso Cairoli → Corso Massimo d'Azeglio",
+        windowSide: "🪟 Lato Sinistro (lato Parco del Valentino e Po)",
+        transitMins: 15,
+        stopMins: 25,
+        coords: [45.0545, 7.6860],
+        zoom: 15,
+        sights: [
+          "Murazzi del Po e Monumento a Garibaldi",
+          "Parco del Valentino (sede propria immersa tra platani secolari)",
+          "Castello del Valentino (Residenza Sabauda Patrimonio UNESCO)",
+          "Borgo Medievale e Fontana dei Dodici Mesi",
+          "Torino Esposizioni (il capolavoro strutturale di Pier Luigi Nervi)"
+        ],
+        secrets: "In Via Pietro Giuria 15 (a 100 metri dalla fermata Giuria) si trova il bizzarro Museo della Frutta Garnier Valletti, che espone oltre 1.000 frutti artificiali di fine '800 identici a quelli veri, accanto al Museo Lombroso."
+      },
+      {
+        id: 6,
+        title: "La Spina Reale, Porta Palazzo e le Porte Romane",
+        line: "Tram 4",
+        lineBadgeColor: "bg-blue-600 text-white",
+        lineCode: "4",
+        vehicle: "Tram panoramico lungo Cityway serie 6000 o Hitachi 8000",
+        route: "Corso Sommeiller / Vittorio → Porta Nuova → XX Settembre → Porta Palazzo",
+        windowSide: "🪟 Grandi vetrate a tutta altezza su entrambi i lati",
+        transitMins: 16,
+        stopMins: 20,
+        coords: [45.0754, 7.6850],
+        zoom: 15,
+        sights: [
+          "Sinagoga Moresca e Tempio Valdese in San Salvario",
+          "Piazza San Carlo (il 'Salotto di Torino') e Museo Egizio",
+          "Porta Palazzo (Piazza della Repubblica, il più grande mercato all'aperto d'Europa)",
+          "Porte Palatine del I sec. a.C. con le torri poligonali romane"
+        ],
+        secrets: "Lungo Via XX Settembre, alzando lo sguardo sui palazzi all'angolo con Via Alfieri (Palazzo Trucchi col celebre Portone del Diavolo), sono ancora visibili palle di cannone francesi dell'Assedio del 1706 rimaste conficcate nelle facciate!"
+      },
+      {
+        id: 7,
+        title: "Gran Finale: Pista sul Tetto al Lingotto & Tram Storico 7",
+        line: "Metro M1 + Linea 7 Storica",
+        lineBadgeColor: "bg-purple-600 text-white",
+        lineCode: "M1 / 7",
+        vehicle: "Metro VAL automatica + Vetture d'epoca ATTS anni '30-'50",
+        route: "Lingotto (Metro M1) + Anello Centro Storico (Linea 7)",
+        windowSide: "🪟 Interni in legno, ottoni e lampadari d'epoca sulla Linea 7",
+        transitMins: 22,
+        stopMins: 30,
+        coords: [45.0320, 7.6655],
+        zoom: 14,
+        sights: [
+          "Ex Stabilimento Fiat del Lingotto del 1923 (disegnato da Mattè Trucco)",
+          "La Pista 500 sul tetto: l'anello di collaudo con le curve paraboliche trasformato da Renzo Piano in giardino pensile con la Pinacoteca Agnelli",
+          "Grattacielo Regione Piemonte (205 m, arch. Fuksas)",
+          "Anello monumentale del centro sui tram storici della Linea 7 (weekend)"
+        ],
+        secrets: "Sulla pista sopraelevata del Lingotto fu girata la leggendaria scena delle Mini Cooper nel film 'The Italian Job' del 1969. Oggi è il giardino artistico sopraelevato più alto d'Europa!"
+      }
+    ];
+
+    const timingPresets = {
+      express: { stops: [5, 5, 5, 20, 10, 10, 15] },
+      classic: { stops: [20, 30, 15, 45, 25, 20, 30] },
+      slow: { stops: [40, 50, 30, 75, 45, 40, 60] }
+    };
+
+    const allLinesData = [
+      {
+        code: "M1",
+        name: "Metropolitana Linea 1",
+        type: "Metrò VAL automatico su gomma",
+        terminals: "Fermi (Collegno) ↔ Bengasi (Moncalieri)",
+        color: "#E30613",
+        description: "23 stazioni, attraversa tutta Torino da ovest a sud passando per Porta Susa, Centro Storico, Porta Nuova e Lingotto.",
+        highlight: "Prima metropolitana automatica d'Italia, inaugurata per i Giochi Olimpici del 2006."
+      },
+      {
+        code: "Tram 13",
+        name: "Linea 13",
+        type: "Tram Urbano Storico / Ordinario",
+        terminals: "Piazza Campanella ↔ Piazza Gran Madre",
+        color: "#F78F1E",
+        description: "Collega Parella con la Gran Madre tagliando la diagonale di Via Pietro Micca e l'asse centrale di Via Po.",
+        highlight: "L'unica linea tranviaria ordinaria che attraversa interamente Piazza Castello e supera il Po davanti alla Gran Madre."
+      },
+      {
+        code: "Tram 15",
+        name: "Linea 15",
+        type: "Tram Urbano Trasversale",
+        terminals: "Via Brissogne ↔ Piazza Coriolano (Sassi)",
+        color: "#0098A6",
+        description: "Attraversa Borgo San Paolo, il Politecnico, il Centro Storico, Corso San Maurizio e la galleria d'alberi di Corso Belgio.",
+        highlight: "Fermata a soli 100 metri dalla stazione della cremagliera di Superga. Vista perfetta sulla Mole Antonelliana."
+      },
+      {
+        code: "Dentera",
+        name: "Tranvia a Cremagliera Sassi–Superga",
+        type: "Tranvia storica a dentiera (Strub)",
+        terminals: "Piazza Modena (Sassi) ↔ Basilica di Superga",
+        color: "#2D7D46",
+        description: "Tratta montana di 3,1 km con 425 m di dislivello e pendenze fino al 21%. Motrici e carrozze in legno del 1934.",
+        highlight: "Unica nel suo genere in Italia, offre un balcone scenografico su tutta Torino e sulle Alpi."
+      },
+      {
+        code: "Tram 16 CD/CS",
+        name: "Linea 16 (Circolare Destra & Sinistra)",
+        type: "Circolare dei Grandi Viali",
+        terminals: "Piazza Sabotino (anello continuo)",
+        color: "#10B981",
+        description: "Ripercorre la cintura dei viali ottocenteschi. Il tratto di Corso Massimo d'Azeglio corre immerso nel Parco del Valentino.",
+        highlight: "La linea più romantica e verde: spesso effettuata con le gloriose motrici 'Due Camere e Cucina' serie 2800."
+      },
+      {
+        code: "Tram 4",
+        name: "Linea 4",
+        type: "Metrotranvia Prioritaria Nord-Sud",
+        terminals: "Falchera ↔ Strada del Drosso (Mirafiori)",
+        color: "#0055A5",
+        description: "Spina dorsale lunga 18 km in sede protetta, servita dai grandi tram articolati Cityway 6000 e Hitachi 8000.",
+        highlight: "Tocca la monumentale Porta Palazzo, le Porte Palatine, il Duomo della Sindone e la Stazione di Porta Nuova."
+      },
+      {
+        code: "Tram 7",
+        name: "Linea 7 Storica",
+        type: "Museo viaggiante su rotaia (ATTS/GTT)",
+        terminals: "Piazza Castello (Circolare centro storico)",
+        color: "#D97706",
+        description: "Attiva nei fine settimana e festivi, impiega tram d'epoca dagli anni '30 agli anni '50 restaurati con cura filologica.",
+        highlight: "Si viaggia su rotabili da museo pagando un ordinario biglietto urbano GTT."
+      },
+      {
+        code: "Tram 9",
+        name: "Linea 9",
+        type: "Tram Urbano Sud-Nord",
+        terminals: "Piazza Stampalia ↔ Corso Massimo d'Azeglio",
+        color: "#8B5CF6",
+        description: "Collega l'area nord con Porta Susa, Porta Nuova e fa capolinea davanti al parco ed ai padiglioni di Torino Esposizioni.",
+        highlight: "Ottimo accesso diretto per San Salvario e l'Orto Botanico."
+      },
+      {
+        code: "Tram 10",
+        name: "Linea 10",
+        type: "Tram dell'Industria e dello Sport",
+        terminals: "Piazza Statuto ↔ Corso Settembrini (Mirafiori)",
+        color: "#EC4899",
+        description: "Scende lungo Corso Duca degli Abruzzi passando per il Politecnico, lo Stadio Grande Torino, Inalpi Arena e Mirafiori.",
+        highlight: "Attraversa i grandi viali dell'architettura del Novecento razionalista torinese."
+      },
+      {
+        code: "Tram 3",
+        name: "Linea 3",
+        type: "Metrotranvia della Dora",
+        terminals: "Piazzale Vallette ↔ Piazza Hermada",
+        color: "#F59E0B",
+        description: "Collega lo Juventus Stadium (zona Vallette) con la precollina di Piazza Hermada passando per Porta Palazzo e Campus Einaudi.",
+        highlight: "Creata per i Mondiali di Italia '90 come metropolitana leggera di superficie."
+      },
+      {
+        code: "SFM",
+        name: "Servizio Ferroviario Metropolitano & Passante",
+        type: "Treni metropolitani sotterranei",
+        terminals: "Spina Centrale: Stura ↔ Porta Susa ↔ Lingotto",
+        color: "#64748B",
+        description: "8 linee ferroviarie metropolitane (SFM 1-7, linea Aeroporto di Caselle) che attraversano la città nel passante sotterraneo a 4 binari.",
+        highlight: "Porta Susa Sotterranea è una delle stazioni ferroviarie ad alta efficienza energetica più premiate al mondo."
+      },
+      {
+        code: "Ristocolor",
+        name: "Tram Ristorante (Ristocolor & Gustotram)",
+        type: "Ristorante gourmet viaggiante",
+        terminals: "Partenze serali da Piazza Carlina (Piazza Carlo Emanuele II)",
+        color: "#E11D48",
+        description: "Vetture storiche serie 2800 trasformate in raffinati vagoni ristorante con tavoli con lampade, servizio al tavolo e cena gourmet.",
+        highlight: "Cena a lume di candela viaggiando tra i monumenti illuminati della notte torinese."
+      }
+    ];
+
+    const vehiclesData = [
+      {
+        name: "Serie 2800: Le mitiche 'Due Camere e Cucina'",
+        year: "1958 - 1960 (ricostruzione motrici anni '30)",
+        gauge: "Scartamento ordinario (1445 mm)",
+        color: "Arancio ministeriale / Verde bicolore",
+        desc: "Soprannominate affettuosamente 'due camere e cucina' per via della giostra Urbinati che univa due casse di motrici degli anni '30 con un corpo centrale. Con il loro inconfondibile fischio e i sedili in legno lucido, sono l'anima sonora e visiva delle strade torinesi.",
+        curiosity: "Molte 2800 sono ancora in servizio di linea ordinaria sul 13 e sul 16, e due esemplari sono stati trasformati nei tram ristorante Ristocolor e Gustotram!"
+      },
+      {
+        name: "Tranvia Sassi-Superga: Le motrici Strub del 1934",
+        year: "1934 (inaugurazione tranvia a cremagliera)",
+        gauge: "Scartamento 1445 mm + Rotaia dentata centrale Strub",
+        color: "Rosso granata e panna",
+        desc: "Le motrici T2 e T3 e le carrozze rimorchiate D11-D14 furono costruite nel 1934 dalle Officine Moncenisio di Condove con equipaggiamenti elettrici TIBB. Salgono la collina grazie a due ruote dentate che fanno presa sulla cremagliera centrale.",
+        curiosity: "Nelle belle giornate estive vengono agganciate le storiche carrozze aperte 'a giardiniera' D13 e D14 senza finestrini, regalando la brezza dei boschi della collina!"
+      },
+      {
+        name: "VAL 208: La Metro Automatica su Gomma",
+        year: "2006 (Giochi Olimpici Invernali)",
+        gauge: "Pneumatici portanti su piste d'acciaio + Rotaia centrale di guida",
+        color: "Grigio perla e rosso",
+        desc: "Il sistema Véhicule Automatique Léger (VAL) di Siemens è totalmente automatico e privo di cabina di pilotaggio. I convogli viaggiano su ruote di gomma dentro una galleria a canna singola scavata con la talpa meccanica.",
+        curiosity: "Grazie all'assenza della cabina, dalla prima carrozza si gode di una visione frontale cinematografica dei tunnel sotterranei illuminati, perfetta per gli appassionati di ferrovie!"
+      },
+      {
+        name: "Cityway Serie 6000 e Hitachi Rail 8000",
+        year: "2001 - 2023",
+        gauge: "Scartamento ordinario 1445 mm - Pianale 100% ribassato",
+        color: "Blu, giallo e grigio argento",
+        desc: "Le 6000 furono disegnate da Giorgetto Giugiaro con un muso aerodinamico e immense vetrate laterali. A partire dal 2022 sono affiancate dai nuovi tram Hitachi Rail Serie 8000, lunghi 28 metri e dotati di illuminazione LED e ampi spazi panoramici.",
+        curiosity: "Sulla Linea 4 offrono una vera 'metropolitana di superficie' che attraversa la città da nord a sud in soli 40 minuti."
+      },
+      {
+        name: "La Torino-Ceres: Il primato mondiale del 1920",
+        year: "1920 (Elettrificazione storica a 4000 V CC)",
+        gauge: "Ferrovia regionale",
+        color: "Castano-Isabella storico",
+        desc: "La ferrovia Torino-Ceres fu la prima linea ferroviaria al mondo ad adottare la trazione elettrica ad alta tensione in corrente continua (4.000 Volt), studiata da ingegneri di tutto il mondo.",
+        curiosity: "Oggi il tracciato è stato riallacciato al Passante sotterraneo attraverso il nuovo tunnel di Corso Grosseto, collegando direttamente il centro città e le stazioni con l'Aeroporto di Caselle."
+      }
+    ];
+
+    const secretsData = [
+      {
+        title: "La Fetta di Polenta (Casa Scaccabarozzi)",
+        cat: "architettura",
+        line: "Tram 15 (fermata Rossini / San Maurizio)",
+        desc: "Alessandro Antonelli costruì questo edificio giallo ocra nel 1840 su una striscia di terra triangolare che gli era stata ceduta per scommessa. Sul lato più acuto misura appena 54 centimetri!",
+        secret: "Antonelli vi visse per qualche anno insieme alla moglie per dimostrare agli scettici cittadini che l'edificio non sarebbe crollato neanche in caso di terremoto."
+      },
+      {
+        title: "Il Vertice della Magia Nera in Piazza Statuto",
+        cat: "esoterismo",
+        line: "Tram 13 / Tram 10 / Metro M1 (XVIII Dicembre)",
+        desc: "Secondo la leggenda esoterica che colloca Torino nel triangolo della magia nera (con Londra e San Francisco), Piazza Statuto ne è il cuore per via della sua posizione a occidente e dell'antica necropoli romana.",
+        secret: "Al vertice del monumento al Frejus, la figura alata con la stella a cinque punte è stata a lungo interpretata come Lucifero che guida le forze oscure."
+      },
+      {
+        title: "Il Triangolo della Magia Bianca in Piazza Castello",
+        cat: "esoterismo",
+        line: "Tram 13 / Tram 15 / Linea 7 Storica",
+        desc: "All'opposto, il punto di massima energia positiva e magia bianca di Torino si troverebbe tra le due statue equestri di Castore e Polluce che vigilano sulla cancellata di Palazzo Reale.",
+        secret: "Si dice che la linea invisibile che separa Piazza Castello (spazio pubblico) dalla piazzetta reale (spazio dinastico) sia il confine tra il bene e il male della città."
+      },
+      {
+        title: "Il Sacro Graal e le Statue della Gran Madre",
+        cat: "esoterismo",
+        line: "Tram 13 (Capolinea Gran Madre)",
+        desc: "Ai lati della monumentale scalinata della Gran Madre sorgono due grandi statue scolpite da Carlo Chelli nel 1834: la Fede e la Religione.",
+        secret: "La statua della Fede tiene in mano una coppa: gli esoteristi sostengono che si tratti del Sacro Graal e che la direzione dello sguardo della statua indichi il colle dove sarebbe sepolto."
+      },
+      {
+        title: "Le Palle di Cannone dell'Assedio del 1706",
+        cat: "architettura",
+        line: "Tram 4 (Via XX Settembre / Piazza San Carlo)",
+        desc: "Durante il terribile assedio francese del 1706, Torino resistette per 117 giorni prima della liberazione guidata dal Principe Eugenio e dal Duca Vittorio Amedeo II.",
+        secret: "Camminando lungo i portici di Via XX Settembre e all'angolo con Via Alfieri, se guardi in alto sulle facciate in mattoni puoi scorgere autentiche palle di cannone in ferro ancora incastrate nei muri, lasciate lì a memoria storica."
+      },
+      {
+        title: "Il Portone del Melograno e la Casa dei Draghi",
+        cat: "architettura",
+        line: "Metro M1 (Principi d'Acaja)",
+        desc: "Il quartiere Cit Turin custodisce i vertici dell'Art Nouveau italiana. In Via Argentero 4 si ammira il celebre Portone del Melograno in ferro battuto.",
+        secret: "Poco più avanti, al civico 23 di Corso Francia, la Casa della Vittoria è dominata da due grandi draghi alati in pietra che sporgono a protezione del portone monumentale."
+      },
+      {
+        title: "La Fontana dei Dodici Mesi e il Borgo del Valentino",
+        cat: "architettura",
+        line: "Tram 16 CS (fermata Valentino / Giuria)",
+        desc: "Nel cuore del parco del Valentino, la Fontana dei Dodici Mesi fu eretta per l'Esposizione Generale Italiana del 1898 da Carlo Ceppi in stile eclettico-liberty.",
+        secret: "È l'unico monumento monumentale dell'Esposizione del 1898 sopravvissuto intatto fino a oggi, immerso in una scenografia di statue che rappresentano i fiumi di Torino: Po, Dora Riparia, Stura di Lanzo e Sangone."
+      }
+    ];
+
+    const poiMarkers = [
+      { name: "Casa Fenoglio-Lafleur", coords: [45.0768, 7.6595], type: "liberty", desc: "Capolavoro Liberty di Pietro Fenoglio (1902)" },
+      { name: "Piazza Statuto (Monumento Frejus)", coords: [45.0765, 7.6713], type: "magia", desc: "Cuore esoterico e Obelisco Geodetico" },
+      { name: "Porta Susa Cattedrale di Vetro", coords: [45.0712, 7.6653], type: "stazione", desc: "Galleria d'acciaio lunga 385 metri" },
+      { name: "Piazza Castello (Palazzo Madama)", coords: [45.0710, 7.6860], type: "reale", desc: "Punto centrale di Torino e magia bianca" },
+      { name: "Mole Antonelliana", coords: [45.0690, 7.6930], type: "monumento", desc: "Alta 167,5 metri, Museo del Cinema" },
+      { name: "La Fetta di Polenta", coords: [45.0699, 7.6974], type: "curiosita", desc: "Casa Scaccabarozzi: larga 54 cm sul lato corto" },
+      { name: "Gran Madre di Dio", coords: [45.0622, 7.6986], type: "chiesa", desc: "Ispirata al Pantheon, leggenda del Sacro Graal" },
+      { name: "Stazione Sassi (Partenza Dentera)", coords: [45.0788, 7.7288], type: "treno", desc: "Capolinea di valle e Museo Storico della cremagliera" },
+      { name: "Basilica di Superga", coords: [45.0807, 7.7675], type: "panoramico", desc: "Basilica di Juvarra, Tombe Sabaude e Grande Torino" },
+      { name: "Castello del Valentino (UNESCO)", coords: [45.0545, 7.6860], type: "reale", desc: "Residenza sabauda immersa nel parco" },
+      { name: "Torino Esposizioni (Nervi)", coords: [45.0440, 7.6815], type: "architettura", desc: "Volte ondulate di Pier Luigi Nervi" },
+      { name: "Porta Palazzo (Piazza Repubblica)", coords: [45.0785, 7.6825], type: "mercato", desc: "Mercato all'aperto più grande d'Europa" },
+      { name: "Porte Palatine Romane", coords: [45.0754, 7.6850], type: "romano", desc: "Porta urbica romana a due torri del I sec. a.C." },
+      { name: "Pista 500 al Lingotto", coords: [45.0320, 7.6655], type: "industria", desc: "Anello di prova sul tetto Fiat trasformato in giardino" }
+    ];
+
+    const routePolylines = {
+      m1: [
+        [45.0768, 7.6015], [45.0765, 7.6180], [45.0764, 7.6335], [45.0762, 7.6440],
+        [45.0763, 7.6530], [45.0768, 7.6595], [45.0762, 7.6660], [45.0712, 7.6653],
+        [45.0680, 7.6690], [45.0650, 7.6740], [45.0622, 7.6784], [45.0570, 7.6788],
+        [45.0520, 7.6782], [45.0460, 7.6760], [45.0400, 7.6740], [45.0350, 7.6710],
+        [45.0320, 7.6655], [45.0230, 7.6630], [45.0160, 7.6610]
+      ],
+      tram13: [
+        [45.0765, 7.6713], [45.0725, 7.6690], [45.0718, 7.6802], [45.0710, 7.6860],
+        [45.0675, 7.6905], [45.0650, 7.6938], [45.0630, 7.6965], [45.0622, 7.6986]
+      ],
+      tram15: [
+        [45.0650, 7.6938], [45.0685, 7.6925], [45.0710, 7.6990], [45.0728, 7.7011],
+        [45.0745, 7.7080], [45.0760, 7.7180], [45.0788, 7.7288]
+      ],
+      dentera: [
+        [45.0788, 7.7288], [45.0795, 7.7390], [45.0800, 7.7510], [45.0804, 7.7600], [45.0807, 7.7675]
+      ],
+      tram16: [
+        [45.0650, 7.6938], [45.0610, 7.6890], [45.0560, 7.6845], [45.0500, 7.6820],
+        [45.0510, 7.6750], [45.0535, 7.6700], [45.0580, 7.6580], [45.0610, 7.6490],
+        [45.0720, 7.6520], [45.0780, 7.6750], [45.0740, 7.6930], [45.0650, 7.6938]
+      ],
+      tram4: [
+        [45.1050, 7.7020], [45.0880, 7.6910], [45.0785, 7.6825], [45.0740, 7.6830],
+        [45.0700, 7.6820], [45.0622, 7.6784], [45.0535, 7.6700], [45.0380, 7.6530], [45.0120, 7.6320]
+      ],
+      tram7: [
+        [45.0710, 7.6860], [45.0675, 7.6905], [45.0650, 7.6938], [45.0610, 7.6890],
+        [45.0600, 7.6810], [45.0622, 7.6784], [45.0680, 7.6815], [45.0710, 7.6860]
+      ]
+    };
+
+    /* ==========================================================================
+       MAP INITIALIZATION
+       ========================================================================== */
+
+    const map = L.map('map', {
+      zoomControl: false,
+      attributionControl: true
+    }).setView([45.0703, 7.6869], 13);
+
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    const layers = {
+      m1: L.layerGroup().addTo(map),
+      tram13: L.layerGroup().addTo(map),
+      tram15: L.layerGroup().addTo(map),
+      dentera: L.layerGroup().addTo(map),
+      tram16: L.layerGroup().addTo(map),
+      tram4: L.layerGroup().addTo(map),
+      tram7: L.layerGroup().addTo(map),
+      pois: L.layerGroup().addTo(map),
+      activePulse: L.layerGroup().addTo(map)
+    };
+
+    L.polyline(routePolylines.m1, { color: '#E30613', weight: 6, opacity: 0.85, lineCap: 'round' })
+      .bindPopup("<b>Metropolitana M1</b><br>Fermi ↔ Bengasi (23 stazioni VAL)").addTo(layers.m1);
+
+    L.polyline(routePolylines.tram13, { color: '#F78F1E', weight: 5, opacity: 0.9, lineCap: 'round' })
+      .bindPopup("<b>Tram 13</b><br>Piazza Statuto ↔ Piazza Gran Madre").addTo(layers.tram13);
+
+    L.polyline(routePolylines.tram15, { color: '#0098A6', weight: 5, opacity: 0.9, lineCap: 'round' })
+      .bindPopup("<b>Tram 15</b><br>Vittorio Veneto ↔ Sassi (Coriolano)").addTo(layers.tram15);
+
+    L.polyline(routePolylines.dentera, { color: '#2D7D46', weight: 6, dashArray: '8, 6', opacity: 0.95 })
+      .bindPopup("<b>Tranvia a Cremagliera Sassi-Superga</b><br>3,1 km di salita collinare al 21% (1934)").addTo(layers.dentera);
+
+    L.polyline(routePolylines.tram16, { color: '#10B981', weight: 4.5, opacity: 0.85 })
+      .bindPopup("<b>Tram 16 CS</b><br>La Linea Circolare dei Grandi Viali &amp; Valentino").addTo(layers.tram16);
+
+    L.polyline(routePolylines.tram4, { color: '#0055A5', weight: 4.5, opacity: 0.85 })
+      .bindPopup("<b>Tram 4</b><br>La grande spina nord-sud di Torino").addTo(layers.tram4);
+
+    L.polyline(routePolylines.tram7, { color: '#D97706', weight: 5, opacity: 0.9 })
+      .bindPopup("<b>Linea 7 Storica</b><br>Anello monumentale del centro sui tram d'epoca").addTo(layers.tram7);
+
+    const iconColors = {
+      liberty: '#F59E0B',
+      magia: '#A855F7',
+      stazione: '#3B82F6',
+      reale: '#EAB308',
+      monumento: '#EC4899',
+      curiosita: '#06B6D4',
+      chiesa: '#10B981',
+      treno: '#22C55E',
+      panoramico: '#14B8A6',
+      architettura: '#6366F1',
+      mercato: '#F97316',
+      romano: '#EF4444',
+      industria: '#8B5CF6'
+    };
+
+    poiMarkers.forEach(poi => {
+      const color = iconColors[poi.type] || '#E30613';
+      const customIcon = L.divIcon({
+        className: 'custom-poi-marker',
+        html: `
+          <div style="background-color: ${color}; width: 26px; height: 26px; border-radius: 9999px; border: 2.5px solid #ffffff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; color: white; font-size: 13px; font-weight: bold;">
+            📍
+          </div>
+        `,
+        iconSize: [26, 26],
+        iconAnchor: [13, 13]
+      });
+
+      const marker = L.marker(poi.coords, { icon: customIcon }).addTo(layers.pois);
+      marker.bindPopup(`
+        <div class="p-3 text-slate-900 min-w-[220px]">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-red-600">${poi.type}</span>
+          <h4 class="font-bold text-sm text-slate-950">${poi.name}</h4>
+          <p class="text-xs text-slate-600 mt-1">${poi.desc}</p>
+        </div>
+      `);
+    });
+
+    /* ==========================================================================
+       STAGE RENDERING & NAVIGATION
+       ========================================================================== */
+
+    let currentActiveStageId = 1;
+
+    function renderStages() {
+      const container = document.getElementById('stages-container');
+      container.innerHTML = '';
+
+      tourStages.forEach(stage => {
+        const isActive = stage.id === currentActiveStageId;
+        const totalStageDuration = stage.transitMins + stage.stopMins;
+        const card = document.createElement('div');
+        card.className = `p-3.5 rounded-xl border transition-all cursor-pointer ${
+          isActive
+            ? 'bg-slate-900 border-amber-500 shadow-md ring-1 ring-amber-500/50'
+            : 'bg-slate-900/50 border-slate-800 hover:border-slate-700 hover:bg-slate-900'
+        }`;
+        card.onclick = () => activateStage(stage.id);
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
+                isActive ? 'bg-amber-500 text-slate-950 font-black' : 'bg-slate-800 text-slate-300'
+              }">${stage.id}</span>
+              <span class="${stage.lineBadgeColor} text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                ${stage.line}
+              </span>
+            </div>
+            <span class="text-[11px] text-slate-400 font-mono">
+              ${totalStageDuration} min <span class="text-slate-600">(${stage.transitMins}m tram + ${stage.stopMins}m sosta)</span>
+            </span>
+          </div>
+
+          <h3 class="text-sm font-bold text-white mt-2 font-serif-title">${stage.title}</h3>
+          <p class="text-xs text-slate-400 mt-0.5">${stage.route}</p>
+
+          <div class="mt-2.5 pt-2 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-slate-300 font-medium">${stage.windowSide}</span>
+            <span class="text-amber-400 font-bold text-[11px] hover:underline">Vola qui →</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function activateStage(stageId) {
+      currentActiveStageId = stageId;
+      const stage = tourStages.find(s => s.id === stageId);
+      if (!stage) return;
+
+      renderStages();
+
+      const banner = document.getElementById('active-stage-banner');
+      const badge = document.getElementById('banner-badge');
+      badge.textContent = `${stage.line} • Tappa ${stage.id}`;
+      badge.className = `px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-wide ${stage.lineBadgeColor}`;
+      document.getElementById('banner-window').textContent = stage.windowSide;
+      document.getElementById('banner-title').textContent = stage.title;
+      document.getElementById('banner-route').textContent = stage.route;
+      document.getElementById('banner-curiosity-preview').textContent = `💡 Curiosità: ${stage.secrets.slice(0, 75)}...`;
+
+      map.flyTo(stage.coords, stage.zoom, { duration: 1.2 });
+
+      layers.activePulse.clearLayers();
+      const pulseCircle = L.circleMarker(stage.coords, {
+        radius: 14,
+        fillColor: '#F59E0B',
+        color: '#FFFFFF',
+        weight: 3,
+        opacity: 1,
+        fillOpacity: 0.9,
+        className: 'pulsing-node'
+      }).addTo(layers.activePulse);
+
+      pulseCircle.bindPopup(`
+        <div class="p-3 text-slate-900 min-w-[240px]">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-red-600">Tappa ${stage.id} • ${stage.line}</span>
+          <h4 class="font-bold text-sm text-slate-950 font-serif-title">${stage.title}</h4>
+          <p class="text-xs text-slate-600 mt-1"><strong>Tratta:</strong> ${stage.route}</p>
+          <p class="text-xs text-amber-700 mt-1"><strong>Finestrino:</strong> ${stage.windowSide}</p>
+          <div class="mt-2 pt-2 border-t border-slate-200 text-xs text-slate-700">
+            <strong>Segreto:</strong> ${stage.secrets}
+          </div>
+        </div>
+      `).openPopup();
+    }
+
+    /* ==========================================================================
+       TIMING & SCHEDULE CUSTOMIZATION ENGINE
+       ========================================================================== */
+
+    function formatTime(dateObj) {
+      const hours = String(dateObj.getHours()).padStart(2, '0');
+      const minutes = String(dateObj.getMinutes()).padStart(2, '0');
+      return `${hours}:${minutes}`;
+    }
+
+    function addMinutes(dateObj, mins) {
+      return new Date(dateObj.getTime() + mins * 60000);
+    }
+
+    function updateTimingCalculations() {
+      const startTimeInput = document.getElementById('input-start-time').value;
+      const [startHour, startMin] = startTimeInput.split(':').map(Number);
+      
+      let currentTime = new Date();
+      currentTime.setHours(startHour, startMin, 0, 0);
+
+      const timelineContainer = document.getElementById('timeline-container');
+      timelineContainer.innerHTML = '';
+
+      let totalTransit = 0;
+      let totalStop = 0;
+      let scheduleTextForCopy = `📅 GRAN TOUR DI TORINO SU ROTAIA - TABELLA DI MARCIA PERSONALIZZATA\n`;
+      scheduleTextForCopy += `🚀 Partenza da Stazione Porta Nuova ore: ${formatTime(currentTime)}\n\n`;
+
+      tourStages.forEach((stage, idx) => {
+        const depTimeStr = formatTime(currentTime);
+        const arrTimeObj = addMinutes(currentTime, stage.transitMins);
+        const arrTimeStr = formatTime(arrTimeObj);
+        
+        const leaveTimeObj = addMinutes(arrTimeObj, stage.stopMins);
+        const leaveTimeStr = formatTime(leaveTimeObj);
+
+        totalTransit += stage.transitMins;
+        totalStop += stage.stopMins;
+
+        const item = document.createElement('div');
+        item.className = 'timeline-item relative flex items-start gap-3 text-xs';
+        
+        item.innerHTML = `
+          <div class="timeline-dot shrink-0 relative flex flex-col items-center">
+            <span class="w-7 h-7 rounded-full bg-slate-800 border border-amber-500/60 flex items-center justify-center font-bold text-amber-400 text-[11px] z-10">
+              ${stage.id}
+            </span>
+          </div>
+
+          <div class="flex-1 bg-slate-950/70 border border-slate-800/80 rounded-xl p-2.5 space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white">${stage.title}</span>
+              <span class="font-mono font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded text-[11px]">
+                ${arrTimeStr} - ${leaveTimeStr}
+              </span>
+            </div>
+
+            <div class="text-[11px] text-slate-400 flex items-center justify-between">
+              <span>🚋 <b>${stage.line}</b> (${stage.transitMins} min viaggio)</span>
+              <span>☕ Sosta: <b>${stage.stopMins} min</b></span>
+            </div>
+
+            <div class="text-[11px] text-slate-300 mt-1 border-t border-slate-800/60 pt-1">
+              📍 <i>${stage.route}</i>
+            </div>
+          </div>
+        `;
+        timelineContainer.appendChild(item);
+
+        scheduleTextForCopy += `• TAPPA ${stage.id} [${stage.line}]\n  Tratta: ${stage.route}\n  Arrivo sul posto: ore ${arrTimeStr} (viaggio ${stage.transitMins}m)\n  Sosta programmata: ${stage.stopMins}m (ripartenza ore ${leaveTimeStr})\n\n`;
+
+        currentTime = leaveTimeObj;
+      });
+
+      const totalMins = totalTransit + totalStop;
+      const totalHours = Math.floor(totalMins / 60);
+      const remainingMins = totalMins % 60;
+      const totalDurationStr = `${totalHours}h ${remainingMins.toString().padStart(2, '0')}m`;
+
+      document.getElementById('label-end-time').textContent = formatTime(currentTime);
+      document.getElementById('label-total-calc').textContent = `Durata: ${totalDurationStr} (${totalTransit}m a bordo + ${totalStop}m a terra)`;
+      document.getElementById('badge-total-duration').textContent = `~${totalDurationStr}`;
+
+      scheduleTextForCopy += `🏁 Rientro a Porta Nuova ore: ${formatTime(currentTime)} (Durata totale: ${totalDurationStr})\n`;
+      scheduleTextForCopy += `🎫 Biglietto: GTT Daily (4,50 €) + Dentera Sassi-Superga A/R (9 €)\n`;
+
+      document.getElementById('btn-copy-schedule').onclick = () => {
+        navigator.clipboard.writeText(scheduleTextForCopy).then(() => {
+          const btn = document.getElementById('btn-copy-schedule');
+          btn.textContent = '✅ Copiato!';
+          setTimeout(() => btn.textContent = '📋 Copia Tabella', 2000);
+        });
+      };
+    }
+
+    function renderTimingSliders() {
+      const container = document.getElementById('timing-stages-sliders');
+      container.innerHTML = '';
+
+      tourStages.forEach((stage, idx) => {
+        const row = document.createElement('div');
+        row.className = 'bg-slate-950/60 border border-slate-800 p-2.5 rounded-lg flex items-center justify-between gap-3 text-xs';
+        
+        row.innerHTML = `
+          <div class="flex-1">
+            <div class="font-bold text-white flex items-center gap-1.5">
+              <span class="text-amber-400">#${stage.id}</span>
+              <span class="truncate">${stage.title.split(':')[0]}</span>
+            </div>
+            <div class="text-[10px] text-slate-400">Tram: ${stage.transitMins} min viaggio fisso</div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="text-[11px] font-mono text-amber-300 w-12 text-right font-bold" id="slider-val-${stage.id}">
+              ${stage.stopMins}m
+            </span>
+            <input type="range" min="0" max="90" step="5" value="${stage.stopMins}" 
+              class="w-24 accent-amber-500 cursor-pointer" id="slider-input-${stage.id}">
+          </div>
+        `;
+
+        const sliderInput = row.querySelector(`#slider-input-${stage.id}`);
+        sliderInput.addEventListener('input', (e) => {
+          const val = parseInt(e.target.value);
+          stage.stopMins = val;
+          row.querySelector(`#slider-val-${stage.id}`).textContent = `${val}m`;
+          renderStages();
+          updateTimingCalculations();
+        });
+
+        container.appendChild(row);
+      });
+    }
+
+    function applyPreset(presetKey) {
+      const preset = timingPresets[presetKey];
+      if (!preset) return;
+
+      preset.stops.forEach((stopVal, idx) => {
+        tourStages[idx].stopMins = stopVal;
+      });
+
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        if (btn.dataset.preset === presetKey) {
+          btn.classList.add('bg-amber-500/20', 'border-amber-500', 'ring-1', 'ring-amber-500');
+          btn.classList.remove('bg-slate-900', 'border-slate-700');
+        } else {
+          btn.classList.remove('bg-amber-500/20', 'border-amber-500', 'ring-1', 'ring-amber-500');
+          btn.classList.add('bg-slate-900', 'border-slate-700');
+        }
+      });
+
+      renderTimingSliders();
+      renderStages();
+      updateTimingCalculations();
+    }
+
+    /* ==========================================================================
+       RENDER OTHER TABS
+       ========================================================================== */
+
+    function renderAllLines() {
+      const container = document.getElementById('all-lines-container');
+      container.innerHTML = '';
+
+      allLinesData.forEach(line => {
+        const item = document.createElement('div');
+        item.className = 'bg-slate-900/60 border border-slate-800 hover:border-slate-700 p-3.5 rounded-xl space-y-1.5 transition-all cursor-pointer';
+        item.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span style="background-color: ${line.color};" class="text-white text-xs font-black px-2 py-0.5 rounded shadow">
+                ${line.code}
+              </span>
+              <span class="font-bold text-sm text-white">${line.name}</span>
+            </div>
+            <span class="text-[11px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded">${line.type}</span>
+          </div>
+          <div class="text-xs text-amber-400/90 font-medium">Capolinea: ${line.terminals}</div>
+          <p class="text-xs text-slate-300 leading-relaxed">${line.description}</p>
+          <div class="text-xs text-slate-400 italic bg-slate-950/60 p-2 rounded-lg border border-slate-800/80">
+            ✨ ${line.highlight}
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function renderVehicles() {
+      const container = document.getElementById('vehicles-container');
+      container.innerHTML = '';
+
+      vehiclesData.forEach(veh => {
+        const item = document.createElement('div');
+        item.className = 'bg-slate-900 border border-slate-800 p-4 rounded-xl space-y-2';
+        item.innerHTML = `
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-bold text-sm text-white font-serif-title">${veh.name}</h3>
+              <span class="text-[11px] text-amber-400 font-mono">Anno: ${veh.year} • ${veh.gauge}</span>
+            </div>
+            <span class="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-700">
+              ${veh.color}
+            </span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">${veh.desc}</p>
+          <div class="bg-slate-950/80 border border-slate-800 p-2.5 rounded-lg text-xs text-emerald-400">
+            <strong>Curiosità tecnica:</strong> ${veh.curiosity}
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function renderSecrets(filterCat = 'all') {
+      const container = document.getElementById('secrets-container');
+      container.innerHTML = '';
+
+      const filtered = filterCat === 'all' 
+        ? secretsData 
+        : secretsData.filter(s => s.cat === filterCat);
+
+      filtered.forEach(sec => {
+        const item = document.createElement('div');
+        item.className = 'bg-slate-900 border border-slate-800 p-3.5 rounded-xl space-y-1.5';
+        item.innerHTML = `
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-sm text-white font-serif-title">${sec.title}</h4>
+            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full ${
+              sec.cat === 'esoterismo' ? 'bg-purple-900/60 text-purple-300 border border-purple-700' : 'bg-blue-900/60 text-blue-300 border border-blue-700'
+            }">${sec.cat}</span>
+          </div>
+          <div class="text-[11px] text-amber-400 font-medium">📍 Vicino a: ${sec.line}</div>
+          <p class="text-xs text-slate-300 leading-relaxed">${sec.desc}</p>
+          <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-xs text-slate-200">
+            <span class="text-amber-400 font-bold">🔮 L'Aneddoto:</span> ${sec.secret}
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    /* ==========================================================================
+       TAB SWITCHING & EVENT LISTENERS
+       ========================================================================== */
+
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+
+        tabBtns.forEach(b => {
+          b.classList.remove('border-gttRed', 'text-white');
+          b.classList.add('border-transparent', 'text-slate-400');
+        });
+        btn.classList.remove('border-transparent', 'text-slate-400');
+        btn.classList.add('border-gttRed', 'text-white');
+
+        tabContents.forEach(c => c.classList.add('hidden'));
+        document.getElementById(`tab-${target}`).classList.remove('hidden');
+      });
+    });
+
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyPreset(btn.dataset.preset));
+    });
+
+    document.getElementById('input-start-time').addEventListener('input', () => {
+      updateTimingCalculations();
+    });
+
+    document.querySelectorAll('#secret-filter-btns button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#secret-filter-btns button').forEach(b => {
+          b.classList.remove('bg-slate-800', 'text-slate-200');
+          b.classList.add('bg-slate-900', 'text-slate-400');
+        });
+        btn.classList.remove('bg-slate-900', 'text-slate-400');
+        btn.classList.add('bg-slate-800', 'text-slate-200');
+        renderSecrets(btn.dataset.cat);
+      });
+    });
+
+    /* ==========================================================================
+       DONATION MODAL LOGIC
+       ========================================================================== */
+
+    const modalDonate = document.getElementById('modal-donate');
+    const openDonateBtns = [document.getElementById('btn-open-donate'), document.getElementById('btn-sidebar-donate')];
+    const closeDonateBtn = document.getElementById('btn-close-donate');
+
+    openDonateBtns.forEach(b => {
+      if (b) b.addEventListener('click', () => modalDonate.classList.remove('hidden'));
+    });
+
+    closeDonateBtn.addEventListener('click', () => modalDonate.classList.add('hidden'));
+    modalDonate.addEventListener('click', (e) => {
+      if (e.target === modalDonate) modalDonate.classList.add('hidden');
+    });
+
+    /* ==========================================================================
+       LAYER TOGGLES
+       ========================================================================== */
+
+    document.getElementById('layer-metro').addEventListener('change', e => {
+      if (e.target.checked) map.addLayer(layers.m1);
+      else map.removeLayer(layers.m1);
+    });
+
+    document.getElementById('layer-dentera').addEventListener('change', e => {
+      if (e.target.checked) map.addLayer(layers.dentera);
+      else map.removeLayer(layers.dentera);
+    });
+
+    document.getElementById('layer-trams').addEventListener('change', e => {
+      if (e.target.checked) {
+        map.addLayer(layers.tram13);
+        map.addLayer(layers.tram15);
+        map.addLayer(layers.tram16);
+        map.addLayer(layers.tram4);
+        map.addLayer(layers.tram7);
+      } else {
+        map.removeLayer(layers.tram13);
+        map.removeLayer(layers.tram15);
+        map.removeLayer(layers.tram16);
+        map.removeLayer(layers.tram4);
+        map.removeLayer(layers.tram7);
+      }
+    });
+
+    document.getElementById('layer-pois').addEventListener('change', e => {
+      if (e.target.checked) map.addLayer(layers.pois);
+      else map.removeLayer(layers.pois);
+    });
+
+    document.getElementById('btn-recenter').addEventListener('click', () => {
+      map.flyTo([45.0703, 7.6869], 13);
+    });
+
+    const sidebar = document.getElementById('sidebar');
+    document.getElementById('toggle-sidebar-btn').addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
+    });
+
+    let autoplayInterval = null;
+    const autoplayBtn = document.getElementById('btn-autoplay');
+    const playIcon = document.getElementById('play-icon');
+    const playText = document.getElementById('play-text');
+
+    autoplayBtn.addEventListener('click', () => {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+        playIcon.textContent = '▶';
+        playText.textContent = 'Tour Guidato';
+      } else {
+        playIcon.textContent = '⏸';
+        playText.textContent = 'Pausa';
+        let step = currentActiveStageId;
+        autoplayInterval = setInterval(() => {
+          step = (step % tourStages.length) + 1;
+          activateStage(step);
+        }, 6000);
+      }
+    });
+
+    document.getElementById('banner-details-btn').addEventListener('click', () => {
+      document.querySelector('[data-tab="tour"]').click();
+      if (window.innerWidth < 768) {
+        sidebar.classList.remove('-translate-x-full');
+      }
+    });
+
+    /* Init */
+    renderStages();
+    renderTimingSliders();
+    updateTimingCalculations();
+    renderAllLines();
+    renderVehicles();
+    renderSecrets();
+    activateStage(1);
+  </script>
+</body>
+</html>
