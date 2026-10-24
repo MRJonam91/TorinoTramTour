@@ -1,153 +1,137 @@
 <div align="center">
 
-# 🚋 Torino Tram Tour
-### *Il Gran Tour Panoramico su Rotaia della Capitale Sabauda*
+# 🚋 Torino su Rotaia
+### *Il giro panoramico di Torino solo in tram, metro e cremagliera*
 
 [![GitHub Stars](https://img.shields.io/github/stars/MRJonam91/TorinoTramTour?style=for-the-badge&logo=github&color=amber)](https://github.com/MRJonam91/TorinoTramTour/stargazers)
-[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-red?style=for-the-badge)](LICENSE.md)
-[![Zero Emissions](https://img.shields.io/badge/Travel-100%25%20Zero%20Emissions-emerald?style=for-the-badge&logo=leaf)](https://github.com/MRJonam91/TorinoTramTour)
-[![Leaflet Interactive](https://img.shields.io/badge/Map-Leaflet%20JS-blue?style=for-the-badge&logo=leaflet)](https://mrjonam91.github.io/TorinoTramTour/)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Donate-yellow?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/mrjonam91)
-[![PayPal](https://img.shields.io/badge/PayPal-Sostieni-00457C?style=for-the-badge&logo=paypal)](https://paypal.me/fbxmano)
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/Licenza-CC%20BY--NC--ND%204.0-red?style=for-the-badge)](LICENSE.md)
+[![100% Rotaie](https://img.shields.io/badge/Viaggio-100%25%20rotaie-emerald?style=for-the-badge&logo=train)](https://github.com/MRJonam91/TorinoTramTour)
+[![Mappa OpenStreetMap](https://img.shields.io/badge/Mappa-OpenStreetMap%20100%25%20Open-blue?style=for-the-badge&logo=openstreetmap)](https://mrjonam91.github.io/TorinoTramTour/)
+[![Offrici un caffè](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Offrici%20un%20caffè-yellow?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/mrjonam91)
+[![PayPal](https://img.shields.io/badge/PayPal-Donazione-00457C?style=for-the-badge&logo=paypal)](https://paypal.me/fbxmano)
 
 <p align="center">
-  <b>Esplora tutta Torino senza mai salire su un autobus o prendere l'auto!</b><br>
-  Un circuito panoramico continuo su rotaia tra carrozze storiche del 1934, tram d'epoca, Liberty, misteri della magia nera e bianca, la Mole Antonelliana e la spettacolare cremagliera di Superga.
+  <b>Innamorarsi di Torino guardando fuori dal finestrino.</b><br>
+  Niente traffico e niente autobus: un anello continuo tra carrozze di legno del 1934, tram arancioni degli anni Cinquanta, villini Liberty, la Mole, i misteri del centro e la salita a cremagliera fino a Superga.
 </p>
 
-[**🌐 Prova la Mappa Interattiva Live**](https://mrjonam91.github.io/TorinoTramTour/) • [**📖 Guida Testuale Completa**](tour_torino_su_rotaia.md) • [**💖 Sostieni il Progetto**](#-sostieni-il-progetto)
+[**🌐 Apri la Mappa Interattiva**](https://mrjonam91.github.io/TorinoTramTour/) • [**📖 Leggi la Guida Completa**](tour_torino_su_rotaia.md) • [**☕ Offrici un bicerin**](#-ti-è-piaciuta-lidea-offrici-un-bicerin)
 
 ---
 
 </div>
 
-## 🌟 Perché Questo Progetto è Unico?
+## 💡 Da dove nasce questa idea?
 
-Torino possiede la **rete tranviaria più antica d'Italia** (inaugurata nel 1871) e una conformazione urbanistica straordinaria, fatta di grandi corsi alberati, portici monumentali ininterrotti, ponti ottocenteschi sul Po e una collina che supera i 670 metri.
+A Torino i binari del tram ci sono dal 1871. I viali sono larghi e alberati, le piazze hanno i portici più lunghi d'Europa, e la collina si specchia nel Po. Chi ci abita lo sa bene: attraversare la città in tram ha un fascino tutto suo, fatto di sferragliamenti familiari, scorci improvvisi e panche di legno lucido.
 
-**Torino Tram Tour** trasforma il trasporto pubblico su ferro (GTT) in un vero e proprio **treno panoramico urbano ad alta sostenibilità**:
-* 🚇 **100% su Rotaia:** Metro M1 (VAL automatico su gomma), Tram 13, Tram 15, Tranvia a Dentiera Sassi-Superga, Tram 16 dei Grandi Viali, Tram 4 e Linea 7 Storica.
-* 🪟 **Consigli Finestrino Panoramico:** Indicazione esatta del lato della vettura da cui guardare per inquadrare monumenti e scorci fotografici.
-* 🔮 **Curiosità & Misteri:** Dalla *Fetta di Polenta* (il palazzo più stretto del mondo, largo appena 54 cm) all'Angelo di Piazza Statuto (vertice della Magia Nera), dalle palle di cannone del 1706 murate nelle facciate al Santo Graal della Gran Madre.
-* ⏱️ **Personalizzazione Dinamica dei Tempi:** Generatore istantaneo di cronoprogramma per tour *Express* (2h30), *Classico* (4h45) o *Slow Full Day* (7h30) con orari esatti di passaggio calcolati per ogni fermata.
+Abbiamo messo insieme le linee attuali di GTT per creare un **vero anello panoramico a cielo aperto**, usando solo mezzi su rotaia:
+* 🚇 **100% su Rotaia:** Dalla metro senza conducente al tram 13, dal 15 alla salita a cremagliera di Superga, passando per il tram 16 immerso nel verde del Valentino e il 4 con le sue grandi vetrate.
+* 🪟 **Il finestrino giusto:** In ogni tratta ti diciamo da che lato sederti per goderti il panorama migliore o per scattare una foto al volo.
+* 🔮 **Le storie e le stranezze della città:** La *Fetta di Polenta* (una casa larga 54 cm in cui l'architetto andò ad abitare per scommessa), l'angelo del Frejus in Piazza Statuto che la leggenda chiama Lucifero, le palle di cannone del 1706 rimaste nei muri e il presunto nascondiglio del Graal.
+* ⏱️ **Quanto tempo hai?** Un calcolatore semplice per farti il giro in 2 ore e mezza tutto a bordo, in mezza giornata con pausa caffè e foto, o con calma tutto il giorno visitando Superga e la pista della Fiat al Lingotto.
+* 🗺️ **Mappa 100% libera e aperta:** Basata su **OpenStreetMap**, senza chiavi API o limitazioni.
 
 ---
 
-## 🗺️ Il Percorso: L'Anello delle 7 Tappe
+## 🗺️ Le 7 Tappe del Giro
 
 ```mermaid
 flowchart LR
     P1["1. Porta Nuova & Statuto<br/><b>Metro M1</b>"] --> P2["2. Pietro Micca & Gran Madre<br/><b>Tram 13</b>"]
     P2 --> P3["3. Mole & Fetta di Polenta<br/><b>Tram 15</b>"]
-    P3 --> P4["4. Salita a Superga (21%)<br/><b>Dentera 1934</b>"]
+    P3 --> P4["4. Salita a Superga<br/><b>Dentera del 1934</b>"]
     P4 --> P5["5. Parco del Valentino<br/><b>Tram 16 CS</b>"]
-    P5 --> P6["6. Porte Palatine Romane<br/><b>Tram 4</b>"]
+    P5 --> P6["6. Porte Palatine e Mercato<br/><b>Tram 4</b>"]
     P6 --> P7["7. Lingotto Pista 500 & Linea 7<br/><b>Metro M1 / Tram 7</b>"]
     P7 -.->|Chiusura Anello| P1
 ```
 
-### 1. 🚇 Dal Futuro al Liberty & Torino Esoterica *(Metro M1)*
+### 1. 🚇 Dai palazzi Liberty di Cit Turin a Piazza Statuto *(Metro M1)*
 * **Tratta:** Porta Nuova ➔ Principi d'Acaja ➔ Piazza Statuto
-* **Esperienza:** Salire in testa al primo treno automatico VAL senza conducente d'Italia per osservare il tunnel dal parabrezza frontale.
-* **Cosa vedere:** Casa Fenoglio-Lafleur (capolavoro Art Nouveau 1902), la Casa dei Draghi, Piazza Statuto, il Monumento al Frejus e l'Obelisco Geodetico del 45° parallelo.
+* **Cosa provare:** Mettiti davanti al finestrone in testa alla prima carrozza: la metro non ha cabina di guida, quindi vedi i binari e la galleria che corrono dritto davanti a te.
+* **Cosa notare:** Casa Fenoglio-Lafleur (una meraviglia Art Nouveau con ferri battuti floreali), la Casa dei Draghi e Piazza Statuto, la piazza esoterica di Torino con l'antico obelisco di pietra del 45° parallelo seminascosto nell'aiuola.
 
-### 2. 👑 La Diagonale Ottocentesca e il Cuore Reale *(Tram 13)*
+### 2. 👑 Tagliare il centro in diagonale fino al Po *(Tram 13)*
 * **Tratta:** Piazza Statuto ➔ Via Pietro Micca ➔ Piazza Castello ➔ Gran Madre
-* **Finestrino:** Lato sinistro fino a Piazza Castello, poi entrambi lungo Via Po.
-* **Cosa vedere:** La diagonale di Via Pietro Micca, Palazzo Madama, Palazzo Reale, Real Chiesa di San Lorenzo, i portici continui di Via Po, Piazza Vittorio Veneto e la Chiesa della Gran Madre di Dio (leggenda del Sacro Graal).
+* **Finestrino:** A sinistra su via Pietro Micca, poi da entrambi i lati lungo via Po.
+* **Cosa notare:** Via Pietro Micca è l'unica via storta di tutta Torino che spezza l'antica scacchiera romana. Dal tram vedi Palazzo Madama e Palazzo Reale comparire all'improvviso, prima di scendere giù per via Po verso l'immensa Piazza Vittorio Veneto e la Gran Madre.
 
-### 3. 📐 Mole Antonelliana, Fetta di Polenta e Corso Belgio *(Tram 15)*
+### 3. 📐 La Mole, la Fetta di Polenta e Corso Belgio *(Tram 15)*
 * **Tratta:** Piazza Vittorio Veneto ➔ Corso San Maurizio ➔ Corso Belgio ➔ Sassi
-* **Finestrino:** Lato sinistro (vista Mole).
-* **Cosa vedere:** Scorci ravvicinati sulla Mole Antonelliana, la celeberrima **"Fetta di Polenta"** (Casa Scaccabarozzi, larga solo 54 cm!), il Campus Luigi Einaudi di Norman Foster e il tunnel di platani secolari di Corso Belgio.
+* **Finestrino:** Lato sinistro su Corso San Maurizio.
+* **Cosa notare:** A ogni incrocio di Vanchiglia la Mole Antonelliana compare tra i tetti, altissima. All'angolo con via Giulia di Barolo c'è la *Fetta di Polenta*, una casa gialla talmente stretta (54 cm sul fondo!) che nessuno voleva comprarla per paura crollasse. Poi il tram si infila nel lungo tunnel d'alberi di Corso Belgio fino ai piedi della collina.
 
-### 4. ⛰️ La "Dentera" del 1934: Arrampicata a Superga *(Tranvia a Cremagliera)*
-* **Tratta:** Stazione Sassi (Piazza Modena) ➔ Basilica di Superga (672 m s.l.m.)
-* **Esperienza:** Salita di 3,1 km nei boschi con pendenze al **21%** sulle vetture storiche in legno del **1934** o sui vagoni aperti "a giardiniera".
-* **Cosa vedere:** Il Museo Storico a Sassi (funicolare Agudio 1884), la Basilica barocca di Juvarra, le Tombe Reali Sabaude, la lapide del Grande Torino e il balcone panoramico sulle Alpi dal Monviso al Monte Rosa.
+### 4. ⛰️ La Dentera del 1934: salita nel bosco a Superga *(Tranvia a Cremagliera)*
+* **Tratta:** Stazione Sassi (Piazza Modena) ➔ Basilica di Superga
+* **Cosa provare:** Si viaggia sulle carrozze storiche del 1934 con panche in legno e ruota dentata centrale, arrampicandosi nel bosco con una pendenza ripida che tocca il 21% (d'estate ci sono anche i vagoni aperti!).
+* **In cima:** La Basilica di Juvarra, le Tombe dei Reali sabaudi, la lapide del Grande Torino e un balcone sulle Alpi che lascia senza fiato.
 
-### 5. 🌳 Il "Treno Verde" lungo il Parco del Valentino *(Tram 16 CS)*
+### 5. 🌳 Il tram nel verde lungo il Parco del Valentino *(Tram 16 CS)*
 * **Tratta:** Piazza Vittorio Veneto ➔ Corso Cairoli ➔ Corso Massimo d'Azeglio
-* **Esperienza:** La storica "Linea dei Viali" corre in sede propria erbosa immersa tra gli alberi del Parco del Valentino sulle gloriose motrici *Serie 2800 "Due Camere e Cucina"*.
-* **Cosa vedere:** Murazzi del Po, Castello del Valentino (UNESCO), Borgo Medievale, Torino Esposizioni (volte di Pier Luigi Nervi) e il Museo della Frutta Garnier Valletti.
+* **Cosa provare:** Il 16 è la storica circolare dei torinesi. Lungo Corso Massimo d'Azeglio i binari corrono in mezzo al prato e all'ombra dei platani del Parco del Valentino, tra le torri del Borgo Medievale e i villini Liberty di San Salvario.
 
-### 6. 🏛️ La Spina Reale, Porta Palazzo e le Porte Romane *(Tram 4)*
+### 6. 🏛️ La spina centrale: mercati e torri romane *(Tram 4)*
 * **Tratta:** Corso Sommeiller ➔ Porta Nuova ➔ Via XX Settembre ➔ Porta Palazzo
-* **Esperienza:** Grandi vetrate panoramiche da terra a soffitto dei tram Cityway e Hitachi Rail.
-* **Cosa vedere:** Sinagoga Moresca, Piazza San Carlo, Duomo della Sindone, Porta Palazzo (il mercato all'aperto più grande d'Europa) e le Porte Palatine del I sec. a.C. con torri poligonali romane.
+* **Cosa provare:** Grandi vetrate panoramiche da terra a soffitto per guardare la città.
+* **Cosa notare:** Porta Palazzo (il mercato all'aperto più grande d'Europa, vivo e coloratissimo) e le Porte Palatine del I secolo a.C. con le loro torri romane in mattoni rossi.
 
-### 7. 🏎️ Gran Finale: Pista 500 al Lingotto & Tram Storico 7 *(Metro M1 / Tram 7)*
-* **Tratta:** Lingotto (Metro M1) + Anello Centro Storico (Linea 7)
-* **Cosa vedere:** L'ex fabbrica Fiat del 1923, la **Pista 500** sopraelevata sul tetto con le curve paraboliche trasformata da Renzo Piano nel giardino pensile artistico più alto d'Europa, la Pinacoteca Agnelli e il Grattacielo della Regione (205 m).
-* **Weekend Bonus:** Nel fine settimana, giro sui tram d'epoca restaurati della **Linea 7 Storica** dell'ATTS con normale biglietto urbano.
-
----
-
-## ⏱️ Personalizzazione Tempi: Tre Ritmi di Viaggio
-
-| Modalità | Tempo Totale | Tempo a Bordo | Sosta a Terra | Ideale Per |
-| :--- | :---: | :---: | :---: | :--- |
-| ⚡ **Express Panoramico** | **~2h 30m** | 2h 13m | ~20m totali | Chi vuole godersi la vista dal finestrino in movimento |
-| 🌟 **Classico Consigliato** | **~4h 45m** | 2h 13m | ~2h 30m | Il giro perfetto con foto, caffè a Piazza Castello e Superga |
-| 🏰 **Slow / Full Day** | **~7h 30m** | 2h 13m | ~5h 15m | Visita a musei, Tombe Reali, Pista 500 e Tram Storico 7 |
-
-Nell'app interattiva [index.html](index.html) puoi regolare al minuto il tempo di sosta per ciascuna tappa e impostare il tuo orario di partenza esatto per generare la tabella di marcia personalizzata.
+### 7. 🏎️ La pista sul tetto della Fiat e il tram storico *(Metro M1 / Tram 7)*
+* **Tratta:** Lingotto (Metro M1) + Anello centro (Linea 7)
+* **Cosa notare:** Al Lingotto prendi l'ascensore e sali sul tetto dell'ex fabbrica Fiat per camminare sulla leggendaria pista parabolica di collaudo (quella di *The Italian Job*!), oggi diventata un giardino pensile panoramico con la Pinacoteca Agnelli.
+* **Nel fine settimana:** Chiudi la giornata salendo sulla **Linea 7**: una carrozza vera degli anni Trenta restaurata dall'ATTS, che gira per il centro al prezzo di un semplice biglietto del tram.
 
 ---
 
-## 📋 Inventario Completo dei Mezzi su Rotaia a Torino
+## ⏱️ Quanto tempo serve?
 
-* 🚇 **Metropolitana M1 (e futura M2):** 23 stazioni da Fermi a Bengasi, sistema VAL 208 su gomma.
-* 🚊 **8 Linee Tranviarie Ordinarie GTT:** Tram 3, 4, 9, 10, 13, 15, 16 CD e 16 CS.
-* ⛰️ **Tranvia a Cremagliera Sassi–Superga ("La Dentera"):** 3,1 km, cremagliera Strub del 1934, pendenza 21%.
-* 🏛️ **Linea 7 Storica:** Museo viaggiante con vetture restaurate dagli anni '30 agli anni '50.
-* 🍷 **Tram Ristorante Ristocolor & Gustotram:** Cene gourmet a lume di candela su tram d'epoca.
-* 🚆 **SFM & Passante Ferroviario Sotterraneo:** 8 linee suburbane e la ferrovia storica Torino-Ceres per l'Aeroporto.
+| Giro | Tempo totale stimato | Come è organizzato |
+| :--- | :---: | :--- |
+| ⚡ **Veloce** | **~2h 30m** | Tutto a bordo, pause minime per cambiare mezzo: puro piacere del finestrino |
+| 🌟 **Il Consigliato** | **~4h 45m** | Il ritmo giusto: tempo per un caffè storico, foto a Superga e due passi nel parco |
+| 🏰 **Con Calma** | **~7h 30m** | Giornata piena: salita sulla cupola di Superga, Pista 500 al Lingotto e pranzo tipico |
+
+Puoi scegliere il tuo orario di partenza nella pagina web [index.html](index.html) e personalizzare i minuti di sosta per ogni singola tappa: gli orari di arrivo e ripartenza si aggiornano da soli.
 
 ---
 
-## 💻 Come Avviare l'Applicazione in Locale
+## 💻 Come provarlo sul computer
 
-Il progetto è sviluppato in architettura **Zero-Config, Single-File Web App**:
+Non serve installare nulla: è una pagina web pulita e leggera.
 
 ```bash
-# 1. Clona la repository
+# Scarica la cartella
 git clone https://github.com/MRJonam91/TorinoTramTour.git
-
-# 2. Entra nella cartella
 cd TorinoTramTour
 
-# 3. Apri direttamente index.html con qualsiasi browser
-# Su Windows (PowerShell):
+# Aprila con il tuo browser preferito (Chrome, Firefox, Edge, Safari...)
+# Su Windows basta un doppio clic su index.html, oppure da terminale:
 Start-Process index.html
-
-# Oppure avvia un piccolo server locale (opzionale):
-python -m http.server 8000
 ```
 
 ---
 
-## 💖 Sostieni il Progetto
+## ☕ Ti è piaciuta l'idea? Offrici un bicerin!
 
-Se hai trovato utile questa guida, se hai scoperto angoli segreti di Torino o se ami il trasporto sostenibile su rotaia, puoi supportare lo sviluppo indipendente di questo progetto:
+Questo progetto è nato per passione, in modo del tutto indipendente, per far scoprire una Torino autentica, a misura d'uomo e rispettosa dell'ambiente. Se ti è tornato utile o ti ha fatto venire voglia di fare un giro in tram:
 
-* ☕ **[Offrimi un Caffè su Buy Me a Coffee](https://buymeacoffee.com/mrjonam91)**
-* 💳 **[Donazione libera via PayPal](https://paypal.me/fbxmano)**
-* ⭐ **Lascia una Stella su GitHub:** Aiuta il progetto a farsi conoscere nel mondo!
+* ☕ **[Offrici un caffè su Buy Me a Coffee](https://buymeacoffee.com/mrjonam91)**
+* 💳 **[Fai una piccola donazione libera su PayPal](https://paypal.me/fbxmano)**
+* ⭐ **Metti una stella al progetto qui su GitHub:** Aiuta a farlo scoprire ad altri viaggiatori!
 
 ---
 
-## 📄 Licenza a Tutela dell'Idea e Proprietà Intellettuale
+## 📄 Licenza & Tutela dell'Idea
 
 Questo progetto è distribuito sotto licenza **[Creative Commons Attribuzione - Non commerciale - Non opere derivate 4.0 Internazionale (CC BY-NC-ND 4.0)](LICENSE.md)**.
 
-* ✅ **Uso personale, didattico, turistico e divulgativo:** Libero e gratuito per tutti i viaggiatori e appassionati.
-* ❌ **Uso commerciale o derivato non autorizzato:** È severamente vietata la rivendita, lo sfruttamento commerciale per tour a pagamento e la creazione di opere derivate senza espressa autorizzazione scritta dell'autore.
+* ✅ **Per le persone:** Usalo liberamente per girare Torino, con amici, in famiglia, per studio o per divertimento.
+* ❌ **Per scopi commerciali:** Non è consentito rivendere questo format, usarlo per tour commerciali a pagamento o crearne copie derivate a scopo di lucro senza accordo scritto con l'autore.
 
-**Autore:** [Manoj Rollo (@MRJonam91)](https://github.com/MRJonam91) — Contatto: `fbxmano@gmail.com`
+**Autore:** [Manoj Rollo (@MRJonam91)](https://github.com/MRJonam91) — Email: `fbxmano@gmail.com`
 
 ---
 
 <div align="center">
-  <b>⭐ Se ti piace Torino e il mondo dei tram, lascia una stella in alto a destra! ⭐</b>
+  <b>⭐ Se ti piace Torino vista dai finestrini del tram, lascia una stella in alto a destra! ⭐</b>
 </div>
